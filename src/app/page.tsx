@@ -8,13 +8,21 @@ export default function Home() {
       <section>
         <h2 className="text-lg font-medium mb-4">Buttons</h2>
         <div className="flex gap-4 flex-wrap">
-          <Button variant="default">Default Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-          <Button variant="destructive">Destructive Button</Button>
-          <Button variant="ghost">Ghost Button</Button>
-          <Button variant="link">Link Button</Button>
-          <Button variant="outline" className="w-1">
-            Outline Button
+          <Button variant="default">Default</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="destructive">Destructive</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
+          <Button variant="outline">Outline</Button>
+          <Button className="w-full">Full Width</Button>
+          <Button size="icon">Ic.</Button>
+          <Button size="sm">Small</Button>
+          <Button size="lg">Large</Button>
+          <Button className="bg-blue-700 p-8 font-bold">
+            Custom className
+          </Button>
+          <Button>
+            <div className="bg-yellow-200 text-stone-800">Children</div>
           </Button>
         </div>
       </section>
