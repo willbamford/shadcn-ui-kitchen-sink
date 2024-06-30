@@ -5,6 +5,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
@@ -17,7 +28,7 @@ const Section = ({
   title: string;
 }) => {
   return (
-    <section className="mb-8">
+    <section className="mb-12">
       <h2 className="text-lg font-medium mb-4">{title}</h2>
       {children}
     </section>
@@ -26,7 +37,7 @@ const Section = ({
 
 export default function Home() {
   return (
-    <main className="p-8">
+    <main className="p-8 lg:p-12">
       <h1 className="text-4xl font-bold mb-8">shadcn/ui kitchen sink</h1>
 
       <Section title="Accordion">
@@ -61,7 +72,6 @@ export default function Home() {
             You can add components and dependencies to your app using the cli.
           </AlertDescription>
         </Alert>
-
         <Alert variant="destructive">
           <ExclamationTriangleIcon className="h-4 w-4" />
           <AlertTitle>Error</AlertTitle>
@@ -69,6 +79,27 @@ export default function Home() {
             Your session has expired. Please log in again.
           </AlertDescription>
         </Alert>
+      </Section>
+
+      <Section title="Alert Dialog">
+        <AlertDialog>
+          <AlertDialogTrigger>
+            <Button>Open</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </Section>
 
       <Section title="Buttons">
