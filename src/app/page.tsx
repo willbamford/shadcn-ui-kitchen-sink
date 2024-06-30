@@ -1,19 +1,35 @@
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+
+const Section = ({
+  children,
+  title,
+}: {
+  children: React.ReactNode;
+  title: string;
+}) => {
+  return (
+    <section className="mb-8">
+      <h2 className="text-lg font-medium mb-4">{title}</h2>
+      {children}
+    </section>
+  );
+};
 
 export default function Home() {
   return (
     <main className="p-8">
       <h1 className="text-4xl font-bold mb-8">shadcn/ui kitchen sink</h1>
 
-      <section className="mb-8">
-        <h2 className="text-lg font-medium mb-4">Accordion</h2>
-
+      <Section title="Accordion">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -36,10 +52,26 @@ export default function Home() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-      </section>
+      </Section>
 
-      <section className="mb-8">
-        <h2 className="text-lg font-medium mb-4">Buttons</h2>
+      <Section title="Alerts">
+        <Alert className="mb-4">
+          <AlertTitle>Heads up!</AlertTitle>
+          <AlertDescription>
+            You can add components and dependencies to your app using the cli.
+          </AlertDescription>
+        </Alert>
+
+        <Alert variant="destructive">
+          <ExclamationTriangleIcon className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>
+            Your session has expired. Please log in again.
+          </AlertDescription>
+        </Alert>
+      </Section>
+
+      <Section title="Buttons">
         <div className="flex gap-4 flex-wrap">
           <Button variant="default">Default</Button>
           <Button variant="secondary">Secondary</Button>
@@ -58,7 +90,7 @@ export default function Home() {
             <div className="bg-yellow-200 text-stone-800">Children</div>
           </Button>
         </div>
-      </section>
+      </Section>
     </main>
   );
 }
